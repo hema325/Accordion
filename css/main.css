@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: #e4f2fe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    caret-color: transparent;
+}
+
+.accordion {
+    width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgb(0 0 0 / .1);
+}
+
+.accordion ul {
+    list-style-type: none;
+    border-radius: inherit;
+}
+
+.accordion ul li {
+    padding: 10px;
+    border-radius: inherit;
+    border: 1px solid #ddd;
+}
+
+.accordion .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: padding-bottom 400ms;
+}
+
+.accordion .head .title {
+    color: #444;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.accordion .head.active {
+    padding-bottom: 10px;
+}
+
+.accordion .details {
+    color: #666;
+    font-size: 14px;
+    height: 0;
+    overflow: hidden;
+    transition: height 400ms;
+}
+
+.accordion ul li:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.accordion ul li:nth-child(odd) {
+    background-color: #fef7f1;
+}
+
+.accordion ul li:nth-child(even) {
+    background-color: #f0faff;
+}
