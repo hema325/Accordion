@@ -3,6 +3,8 @@
 const extendBtns = document.querySelectorAll(".head");
 const extendIcons = [...extendBtns].map(btn => btn.lastElementChild);
 const accordionDetails = document.querySelectorAll(".details");
+const accordionLists = document.querySelectorAll(".accordion ul li");
+const accordion = document.querySelector(".accordion");
 
 const slideDown = idx => {
     extendIcons[idx].classList.remove("fa-plus");
@@ -28,4 +30,29 @@ extendBtns.forEach((btn, idx) => {
         else
             slideUp(idx);
     })
-})
+});
+
+let currentDragged = null;
+
+accordionLists.forEach((li, index) => {
+
+    li.addEventListener("dragstart", () => {
+        currentDragged = li;
+        li.classList.add("dragging");
+    });
+
+    li.addEventListener("dragend", () => {
+        currentDragged = null;
+        li.classList.remove("dragging");
+    });
+
+    li.addEventListener("dragover", e => {
+        e.preventDefault();
+
+        if (e.clientY <= li.offsetTop + li.offsetHeight / 2)
+            li.before(currentDragged);
+        else
+            li.after(currentDragged);
+    });
+
+});

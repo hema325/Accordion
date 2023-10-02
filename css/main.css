@@ -33,6 +33,12 @@ body {
     padding: 10px;
     border-radius: inherit;
     border: 1px solid #ddd;
+    position: relative;
+    transition: opacity 400ms;
+}
+
+.accordion ul li.dragging {
+    opacity: 0;
 }
 
 .accordion .head {
